@@ -1,18 +1,19 @@
 package transport;
 
 public class Car {
-    final String brand;
-    final String model;
-    double engineVolume;
-    String color;
-    final int year;
-    final String country;
-    String gearBox;
-    final String bodyType;
-    String carReg;
-    final int numberOfSeats;
-    boolean winterTires;
-    public int month = 10;
+    private final String brand;
+    private final String model;
+    private double engineVolume;
+    private String color;
+    private final int year;
+    private final String country;
+    private String gearBox;
+    private final String bodyType;
+    private String carReg;
+    private final int numberOfSeats;
+    private boolean winterTires;
+    private int month = 10;
+
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country, String gearBox, String bodyType, String carReg, int numberOfSeats) {
         this.brand = brand == null ? "default" : brand;

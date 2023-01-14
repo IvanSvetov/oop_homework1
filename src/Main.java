@@ -17,7 +17,8 @@ public class Main {
 
         car1.isWinterTires();
         car2.isWinterTires();
-        car1.setMonth(6);
+        car1.setMonth(7);
         car1.isWinterTires();
+
     }
 }
