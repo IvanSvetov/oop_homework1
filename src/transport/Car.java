@@ -1,12 +1,7 @@
 package transport;
 
-public class Car {
-    private final String brand;
-    private final String model;
+public class Car extends Transport {
     private double engineVolume;
-    private String color;
-    private final int year;
-    private final String country;
     private String gearBox;
     private final String bodyType;
     private String carReg;
@@ -15,36 +10,22 @@ public class Car {
     private int month = 10;
 
 
-    public Car(String brand, String model, double engineVolume, String color, int year, String country, String gearBox, String bodyType, String carReg, int numberOfSeats) {
-        this.brand = brand == null ? "default" : brand;
-        this.model = model == null || model.isBlank() ? "default" : model;
+    public Car(String brand, String model, double engineVolume, String colour, int year, String country, String maxSpeed, String gearBox, String bodyType, String carReg, int numberOfSeats) {
+        super(brand, model, year, country, colour, maxSpeed);
         this.engineVolume = engineVolume > 0 ? engineVolume : 1.5;
-        this.color = color == null || color.isBlank() ? "white" : color;
-        this.year = year > 0 ? year : 2000;
-        this.country = country == null || country.isBlank() ? "default" : country;
         this.gearBox = gearBox == null || gearBox.isBlank() ? "default" : gearBox;
         this.carReg = carReg == null || carReg.isBlank() ? "default" : carReg;
         this.bodyType = bodyType == null || bodyType.isBlank() ? "default" : bodyType;
         this.numberOfSeats = numberOfSeats <=0 ? 4 : numberOfSeats;
     }
-    public String getBrand() {
-        return brand;
-    }
-    public String getModel() {
-        return model;
-    }
+
     public double getEngineVolume() {
         return engineVolume;
     }
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume;
     }
-    public String getColor() {
-        return color;
-    }
-    public void setColor(String color) {
-        this.color = color;
-    }
+
     public String getGearBox() {
         return gearBox;
     }
@@ -64,12 +45,7 @@ public class Car {
         return numberOfSeats;
     }
     public boolean getWinterTires() { return winterTires; }
-    public int getYear() {
-        return year;
-    }
-    public String getCountry() {
-        return country;
-    }
+
     public int getMonth() {
         return month;
     }
@@ -79,8 +55,8 @@ public class Car {
 
     @Override
     public String toString() {
-        return "brand = " + brand + ", model = " + model + ", engineVolume=" + engineVolume +
-                ", color = " + color + ", year = " + year + ", country = " + country + ", gearBox = " + gearBox +
+        return "brand = " + getBrand() + ", model = " + getModel() + ", engineVolume = " + engineVolume +
+                ", color = " + getColour() + ", year = " + getYear() + ", country = " + getCountry() + ", gearBox = " + gearBox +
                 ", bodyType = " + bodyType + ", carReg = " + carReg + ", numberOfSeats = " + numberOfSeats;
     }
     public class Key {
