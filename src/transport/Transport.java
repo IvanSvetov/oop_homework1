@@ -1,61 +1,33 @@
 package transport;
 
-public abstract class Transport {
-    private String brand;
-    private String model;
-    private final int year;
-    private final String country;
-    private String colour;
-    private String maxSpeed;
-
-    public Transport(String brand, String model, int year, String country, String colour, String maxSpeed) {
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.country = country;
-        this.colour = colour == null || colour.isBlank() ? "default": colour;
-        this.maxSpeed = maxSpeed == null || maxSpeed.isBlank() ? "default" : maxSpeed;
+public abstract class Transport<T extends Driver> implements Competing {
+    private final String brand;
+    private final String model;
+    private double engineVolume;
+    private T driver;
+    public Transport(String brand, String model, double engineVolume, T driver) {
+        this.brand = brand == null || brand.isBlank() ? "default" : brand;
+        this.model = model == null || model.isBlank() ? "default" : model;
+        setEngineVolume(engineVolume);
+        setDriver(driver);
     }
-
     @Override
     public String toString() {
-        return "Transport brand = " + brand + ", model = " + model +
-                ", year = " + year +
-                ", country = '" + country +
-                ", colour = " + colour +
-                ", maxSpeed = " + maxSpeed;
+        return "Transport brand = " + brand + ", model = " + model;
     }
-
     public String getBrand() {
         return brand;
     }
-
     public String getModel() {
         return model;
     }
-
-    public int getYear() {
-        return year;
+    public T getDriver() { return driver; }
+    public void setDriver(T driver) { this.driver = driver; }
+    public double getEngineVolume() { return engineVolume; }
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume <=0 ? engineVolume = 1.6 : engineVolume;
     }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getColour() {
-        return colour;
-    }
-
-    public void setColor(String colour) {
-        this.colour = colour;
-    }
-
-    public String getMaxSpeed() {
-        return maxSpeed;
-    }
-
-    public void setMaxSpeed(String maxSpeed) {
-        this.maxSpeed = maxSpeed;
-    }
+    public abstract void startMove();
+    public abstract void finishMove();
 }
 
