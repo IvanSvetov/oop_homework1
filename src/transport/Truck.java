@@ -1,9 +1,25 @@
 package transport;
 
 public class Truck extends Transport<DriverCatC> {
+    private Carrying carrying;
 
-    public Truck(String brand, String model, double engineVolume, DriverCatC driver) {
+
+    public Truck(String brand, String model, double engineVolume, DriverCatC driver, Carrying carrying) {
         super(brand, model, engineVolume, driver);
+        this.carrying = carrying;
+    }
+
+    public Carrying getCarrying() {
+        return carrying;
+    }
+
+    public void setCarrying(Carrying carrying) {
+        this.carrying = carrying;
+    }
+
+    @Override
+    public String toString() {
+        return "Truck " + super.toString() + " carrying = " + carrying;
     }
 
     @Override
@@ -14,6 +30,15 @@ public class Truck extends Transport<DriverCatC> {
     @Override
     public void finishMove() {
         System.out.println("Truck" + getBrand() + "finished the movement");
+    }
+
+    @Override
+    public void printType() {
+        if (getCarrying() == null) {
+            System.out.println("Данных по транспортному средству недостаточно");
+        } else {
+            System.out.println(getCarrying());
+        }
     }
 
     @Override
