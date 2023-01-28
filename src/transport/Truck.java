@@ -32,4 +32,9 @@ public class Truck extends Transport<DriverCatC> {
         double maxSpeed = 257;
         System.out.println("Max speed of the truck " + maxSpeed);
     }
+
+    @Override
+    public boolean passDiagnostics() {
+        return this.isDiagnosticsPassed();
+    }
 }

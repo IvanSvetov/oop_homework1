@@ -35,4 +35,9 @@ public class Bus extends Transport<DriverCatD>{
         double maxSpeed = 194;
         System.out.println("Max speed of the bus " + maxSpeed);
     }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeExeption {
+        throw new TransportTypeExeption ("Автобусы диагностику проходить не должны");
+    }
 }

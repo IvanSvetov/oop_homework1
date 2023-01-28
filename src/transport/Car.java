@@ -27,4 +27,9 @@ public class Car extends Transport<DriverCatB>{
         double maxSpeed = 315;
         System.out.println("Max speed of the car " + maxSpeed);
     }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeExeption {
+        return this.isDiagnosticsPassed();
+    }
 }
