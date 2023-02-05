@@ -60,7 +60,7 @@ public class Truck extends Transport<DriverCatC> {
 
     @Override
     public boolean passDiagnostics() {
-        return this.isDiagnosticsPassed();
+        return this.passDiagnostics();
     }
 
     @Override
