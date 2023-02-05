@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.List;
+
 public class Car extends Transport<DriverCatB>{
     private BodyType bodyType;
 
@@ -55,5 +57,10 @@ public class Car extends Transport<DriverCatB>{
     @Override
     public boolean passDiagnostics() throws TransportTypeExeption {
         return this.isDiagnosticsPassed();
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем автомобиль";
     }
 }

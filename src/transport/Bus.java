@@ -1,5 +1,7 @@
 package transport;
 
+import java.util.List;
+
 public class Bus extends Transport<DriverCatD>{
     private Capacity capacity;
 
@@ -63,5 +65,10 @@ public class Bus extends Transport<DriverCatD>{
     @Override
     public boolean passDiagnostics() throws TransportTypeExeption {
         throw new TransportTypeExeption ("Автобусы диагностику проходить не должны");
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем автобус";
     }
 }
