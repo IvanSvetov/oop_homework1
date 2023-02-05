@@ -1,17 +1,39 @@
 package transport;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Transport<T extends Driver> implements Competing {
+
     private final String brand;
     private final String model;
     private double engineVolume;
     private T driver;
     private boolean diagnosticsPassed = true;
+    private List<Mechanic> mechanicList;
 
     public Transport(String brand, String model, double engineVolume, T driver) {
         this.brand = brand == null || brand.isBlank() ? "default" : brand;
         this.model = model == null || model.isBlank() ? "default" : model;
-        setEngineVolume(engineVolume);
-        setDriver(driver);
+        this.engineVolume = engineVolume;
+        this.driver = driver;
+    }
+
+    public List<Mechanic> getMechanicList() {
+        return mechanicList;
+    }
+    public void setMechanicList(List<Mechanic> mechanicList) {
+        this.mechanicList = mechanicList;
+    }
+    protected static List<Mechanic> listOfMechanics = new ArrayList<>();
+    public static void addMechanic(String name, String company) {
+        listOfMechanics.add(new Mechanic(name, company));
+    }
+    public static void removeMechanic(String name, String company) {
+        listOfMechanics.remove(new Mechanic(name, company));
+    }
+    public static void removeMechanic(Mechanic mechanic) {
+        listOfMechanics.remove(mechanic);
     }
     @Override
     public String toString() {
@@ -29,9 +51,9 @@ public abstract class Transport<T extends Driver> implements Competing {
     public void setEngineVolume(double engineVolume) {
         this.engineVolume = engineVolume <=0 ? engineVolume = 1.6 : engineVolume;
     }
+    public abstract String repair();
     public boolean isDiagnosticsPassed() {
         return this.diagnosticsPassed;
-
     }
     public abstract void startMove();
     public abstract void finishMove();

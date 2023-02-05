@@ -37,4 +37,9 @@ public class Truck extends Transport<DriverCatC> {
     public boolean passDiagnostics() {
         return this.isDiagnosticsPassed();
     }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем грузовик";
+    }
 }
