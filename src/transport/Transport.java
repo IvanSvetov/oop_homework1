@@ -2,6 +2,7 @@ package transport;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class Transport<T extends Driver> implements Competing {
 
@@ -12,11 +13,12 @@ public abstract class Transport<T extends Driver> implements Competing {
     private boolean diagnosticsPassed = true;
     private List<Mechanic> mechanicList;
 
-    public Transport(String brand, String model, double engineVolume, T driver) {
+    public Transport(String brand, String model, double engineVolume, T driver, List<Mechanic> mechanicList) {
         this.brand = brand == null || brand.isBlank() ? "default" : brand;
         this.model = model == null || model.isBlank() ? "default" : model;
         this.engineVolume = engineVolume;
         this.driver = driver;
+        this.mechanicList = mechanicList;
     }
 
     public List<Mechanic> getMechanicList() {
@@ -58,5 +60,15 @@ public abstract class Transport<T extends Driver> implements Competing {
     public abstract void startMove();
     public abstract void finishMove();
     public abstract boolean passDiagnostics();
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(brand, model, engineVolume, driver, mechanicList);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
 

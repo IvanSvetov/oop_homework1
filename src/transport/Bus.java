@@ -7,8 +7,8 @@ public class Bus extends Transport<DriverCatD>{
     public Bus(String brand,
                String model,
                double engineVolume,
-               DriverCatD driver) {
-        super(brand, model, engineVolume, driver);
+               DriverCatD driver, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
     }
 
     @Override

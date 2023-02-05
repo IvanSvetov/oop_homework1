@@ -3,8 +3,8 @@ package transport;
 import java.util.List;
 
 public class Car extends Transport<DriverCatB>{
-    public Car(String brand, String model, double engineVolume, DriverCatB driver) {
-        super(brand, model, engineVolume, driver);
+    public Car(String brand, String model, double engineVolume, DriverCatB driver, List<Mechanic> mechanicList) {
+        super(brand, model, engineVolume, driver, mechanicList);
     }
 
     @Override
