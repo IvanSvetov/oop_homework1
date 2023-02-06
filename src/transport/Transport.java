@@ -41,6 +41,8 @@ public abstract class Transport<T extends Driver> implements Competing {
 
     public abstract void startMove();
     public abstract void finishMove();
-    public abstract boolean passDiagnostics();
+    public boolean passDiagnostics() throws TransportTypeExeption {
+        return true;
+    }
 }
 
