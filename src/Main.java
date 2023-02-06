@@ -30,5 +30,11 @@ public class Main {
         System.out.println(mechanicList.get(1).fixing() + " " + transports.get(1).getBrand());
         System.out.println(mechanicList.get(2).fixing() + " " + transports.get(2).getBrand());
 
+        try {
+            System.out.println(transports.get(1).passDiagnostics());
+        } catch (TransportTypeExeption transportTypeExeption) {
+            System.out.println("Автобусы не должны проходить диагностику");
+        }
+        System.out.println("Проверка завершена");
     }
 }
