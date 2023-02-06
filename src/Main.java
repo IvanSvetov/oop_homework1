@@ -13,5 +13,11 @@ public class Main {
         System.out.println(bus1);
         System.out.println(truck1);
 
+        try {
+            System.out.println(transports.get(1).passDiagnostics());
+        } catch (TransportTypeExeption transportTypeExeption) {
+            System.out.println("Автобусы не должны проходить диагностику");
+        }
+        System.out.println("Проверка завершена");
     }
 }
