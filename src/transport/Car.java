@@ -32,7 +32,7 @@ public class Car extends Transport<DriverCatB>{
 
     @Override
     public boolean passDiagnostics() throws TransportTypeExeption {
-        return this.passDiagnostics();
+        return true;
     }
 
     @Override
