@@ -1,16 +1,14 @@
 package transport;
 
-import java.util.List;
-
 public class Bus extends Transport<DriverCatD>{
     private Capacity capacity;
 
     public Bus(String brand,
                String model,
                double engineVolume,
-               DriverCatD driver, Capacity capacity) {
+               DriverCatD driver) {
         super(brand, model, engineVolume, driver);
-        this.capacity = capacity;
+
     }
 
     public Capacity getCapacity() {

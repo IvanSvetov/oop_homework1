@@ -1,13 +1,11 @@
 package transport;
 
-import java.util.List;
-
 public class Car extends Transport<DriverCatB>{
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverCatB driver, BodyType bodyType) {
+    public Car(String brand, String model, double engineVolume, DriverCatB driver) {
         super(brand, model, engineVolume, driver);
-        this.setBodyType(bodyType);
+
     }
     public BodyType getBodyType() {
         return bodyType;
