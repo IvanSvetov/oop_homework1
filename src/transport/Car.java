@@ -3,9 +3,9 @@ package transport;
 public class Car extends Transport<DriverCatB>{
     private BodyType bodyType;
 
-    public Car(String brand, String model, double engineVolume, DriverCatB driver, BodyType bodyType) {
+    public Car(String brand, String model, double engineVolume, DriverCatB driver) {
         super(brand, model, engineVolume, driver);
-        this.setBodyType(bodyType);
+
     }
     public BodyType getBodyType() {
         return bodyType;
@@ -50,5 +50,15 @@ public class Car extends Transport<DriverCatB>{
     public void maxSpeed() {
         double maxSpeed = 315;
         System.out.println("Max speed of the car " + maxSpeed);
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeExeption {
+        return true;
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем автомобиль";
     }
 }

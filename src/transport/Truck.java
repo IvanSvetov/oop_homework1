@@ -4,7 +4,7 @@ public class Truck extends Transport<DriverCatC> {
     private Carrying carrying;
 
 
-    public Truck(String brand, String model, double engineVolume, DriverCatC driver, Carrying carrying) {
+    public Truck(String brand, String model, double engineVolume, DriverCatC driver) {
         super(brand, model, engineVolume, driver);
         this.carrying = carrying;
     }
@@ -56,5 +56,15 @@ public class Truck extends Transport<DriverCatC> {
     public void maxSpeed() {
         double maxSpeed = 257;
         System.out.println("Max speed of the truck " + maxSpeed);
+    }
+
+    @Override
+    public boolean passDiagnostics() {
+        return true;
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем грузовик";
     }
 }

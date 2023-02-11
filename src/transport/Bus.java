@@ -6,9 +6,9 @@ public class Bus extends Transport<DriverCatD>{
     public Bus(String brand,
                String model,
                double engineVolume,
-               DriverCatD driver, Capacity capacity) {
+               DriverCatD driver) {
         super(brand, model, engineVolume, driver);
-        this.capacity = capacity;
+
     }
 
     public Capacity getCapacity() {
@@ -58,5 +58,15 @@ public class Bus extends Transport<DriverCatD>{
     public void maxSpeed() {
         double maxSpeed = 194;
         System.out.println("Max speed of the bus " + maxSpeed);
+    }
+
+    @Override
+    public boolean passDiagnostics() throws TransportTypeExeption {
+        throw new TransportTypeExeption ("Автобусы диагностику проходить не должны");
+    }
+
+    @Override
+    public String repair() {
+        return "Ремонтируем автобус";
     }
 }
